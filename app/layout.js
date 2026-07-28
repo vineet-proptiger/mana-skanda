@@ -33,7 +33,7 @@ const nephilm = localFont({
 })
 
 export const metadata = {
-  metadataBase: new URL('https://manaskandarightlife.co.in/'),
+  metadataBase: new URL('https://manaskandatherightlife.co.in/'),
   title: 'Mana Skanda The Right Life | 2, 3 & 4 BHK Luxury Residences in Sarjapur Road, Bangalore East',
   description: "Embrace The Right Life by Mana Skanda, where each dawn brings promise and every dusk contentment in Sarjapur Road, Bangalore East. Luxurious housing units with world-class amenities.",
 }

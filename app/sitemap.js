@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const base = 'https://manaskandarightlife.co.in'
+  const base = 'https://manaskandatherightlife.co.in'
 
   return [
     {

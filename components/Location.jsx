@@ -95,14 +95,8 @@ const Location = () => {
           </div>
 
           {/* RIGHT — Map */}
-          <div className="w-full lg:flex-1" data-aos="fade-left" data-aos-delay="150" style={{ minHeight: '420px' }}>
-            <div style={{
-              overflow: 'hidden',
-              border: '1px solid #D5C2A8',
-              height: '100%', minHeight: '420px',
-              position: 'relative',
-              background: '#EAE5DC'
-            }}>
+          <div className="w-full lg:flex-1 flex flex-col justify-center" data-aos="fade-left" data-aos-delay="150">
+            <div className="overflow-hidden border border-[#D5C2A8] bg-[#EAE5DC] relative flex items-center justify-center w-full h-full">
               {/* Google Maps iframe commented out as requested */}
               {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.13332784909!2d77.7479348!3d12.899147199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0dc0ad20cbbb%3A0x68e80745218128fa!2sMana%20Skanda%20%7C%20The%20Right%20Life!5e0!3m2!1sen!2sin!4v1785316145007!5m2!1sen!2sin"
@@ -114,31 +108,24 @@ const Location = () => {
                 referrerPolicy="strict-origin-when-cross-origin"
               /> */}
 
-              {/* Display location map image */}
-              <div className="relative w-full h-full min-h-[450px] flex items-center justify-center">
+              {/* Display location map image responsively without cropping */}
+              <div className="relative w-full h-full flex items-center justify-center">
                 <Image
                   src="/images/location/location.webp"
                   alt="Mana Skanda - Location Map & Prime Connectivity"
-                  fill
+                  width={1200}
+                  height={1200}
                   sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover object-center"
+                  className="w-full h-auto object-contain"
                 />
               </div>
 
-              <div style={{
-                position: 'absolute', top: '16px', left: '16px', zIndex: 10,
-                background: 'var(--color-gold)', opacity: 0.95, backdropFilter: 'blur(6px)',
-                borderRadius: '8px', padding: '6px 14px',
-                display: 'flex', alignItems: 'center', gap: '6px',
-              }}>
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-[var(--color-gold)] opacity-95 backdrop-blur-[6px] rounded-lg py-1.5 px-3 sm:py-1.5 sm:px-3.5 flex items-center gap-1.5 shadow-sm">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                   stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
                 </svg>
-                <span style={{
-                  color: '#fff', fontSize: '11px', fontFamily: F_JOST,
-                  fontWeight: '700', letterSpacing: '0.04em'
-                }}>
+                <span className="text-white text-[11px] font-bold tracking-[0.04em]" style={{ fontFamily: F_JOST }}>
                   Sarjapur Road, Bangalore
                 </span>
               </div>

@@ -1,5 +1,6 @@
 'use client' 
 import { useState } from 'react'
+import Image from 'next/image'
 
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
 const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
@@ -102,7 +103,8 @@ const Location = () => {
               position: 'relative',
               background: '#EAE5DC'
             }}>
-              <iframe
+              {/* Google Maps iframe commented out as requested */}
+              {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.13332784909!2d77.7479348!3d12.899147199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0dc0ad20cbbb%3A0x68e80745218128fa!2sMana%20Skanda%20%7C%20The%20Right%20Life!5e0!3m2!1sen!2sin!4v1785316145007!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
@@ -110,10 +112,22 @@ const Location = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
-              />
+              /> */}
+
+              {/* Display location map image */}
+              <div className="relative w-full h-full min-h-[450px] flex items-center justify-center">
+                <Image
+                  src="/images/location/location.webp"
+                  alt="Mana Skanda - Location Map & Prime Connectivity"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover object-center"
+                />
+              </div>
+
               <div style={{
-                position: 'absolute', bottom: '16px', left: '16px', zIndex: 10,
-                background: 'var(--color-gold)', opacity: 0.9, backdropFilter: 'blur(6px)',
+                position: 'absolute', top: '16px', left: '16px', zIndex: 10,
+                background: 'var(--color-gold)', opacity: 0.95, backdropFilter: 'blur(6px)',
                 borderRadius: '8px', padding: '6px 14px',
                 display: 'flex', alignItems: 'center', gap: '6px',
               }}>

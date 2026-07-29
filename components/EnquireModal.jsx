@@ -52,15 +52,15 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
         <div className="flex-1 flex flex-col overflow-y-auto">
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 z-10 text-gray-400 hover:text-gray-900 transition-colors bg-gray-50 hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center shadow-sm border border-gray-200"
+            className="absolute top-3.5 right-3.5 z-10 text-gray-400 hover:text-gray-900 transition-colors bg-gray-50 hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center shadow-sm border border-gray-200"
           >
             <X size={16} />
           </button>
 
-          <div className="p-4 sm:p-7 flex flex-col justify-center flex-1 relative">
+          <div className="px-4 pb-4 pt-2.5 sm:px-7 sm:pb-7 sm:pt-3.5 flex flex-col justify-center flex-1 relative">
             
             {/* Header - Logo on top, Title below */}
-            <div className="flex flex-col items-center justify-center gap-2 mb-3 sm:mb-4 border-b border-gray-100 pb-3 sm:pb-3.5 mt-1 sm:mt-2">
+            <div className="flex flex-col items-center justify-center gap-1.5 mb-3 sm:mb-4 border-b border-gray-100 pb-2.5 sm:pb-3">
               <div className="relative w-[160px] sm:w-[170px] h-14 sm:h-16 shrink-0">
                 <Image 
                   src={logoImages.main} 

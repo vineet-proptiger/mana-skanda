@@ -103,7 +103,7 @@ const Location = () => {
               background: '#EAE5DC'
             }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.896!2d77.72!3d12.91!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13a0e66a3103%3A0x7d8faac422c53f!2sSarjapur%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.13332784909!2d77.7479348!3d12.899147199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0dc0ad20cbbb%3A0x68e80745218128fa!2sMana%20Skanda%20%7C%20The%20Right%20Life!5e0!3m2!1sen!2sin!4v1785316145007!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '420px', display: 'block' }}

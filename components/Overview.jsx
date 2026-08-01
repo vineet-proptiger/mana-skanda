@@ -31,7 +31,7 @@ const infoItems = [
   { label: 'Project Status', value: 'New Launch', highlight: false },
   { label: 'Residential',       value: 'G+32 Tower', highlight: false },
   { label: 'Configurations', value: '2, 3 & 4 BHK', highlight: false },
-  { label: 'Project Area',    value: '31 Acres', highlight: true },
+  { label: 'Township Area',    value: '100 Acres', highlight: true },
 ]
 
 const Overview = ({ setIsOpen }) => {

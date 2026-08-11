@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { overviewImage } from '../lib/images'
 
@@ -35,6 +36,7 @@ const infoItems = [
 ]
 
 const Overview = ({ setIsOpen }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
   
   return (
     <section
@@ -58,7 +60,7 @@ const Overview = ({ setIsOpen }) => {
           color: '#C9A96E', letterSpacing: '0.05em',
           textTransform: 'capitalize', margin: 0,
         }}>
-          Luxury Residential Project in Sarjapur Road, Bangalore
+          The Right Life – Bengaluru's Largest Child-Centric Township
         </h3>
       </div>
 
@@ -82,19 +84,36 @@ const Overview = ({ setIsOpen }) => {
               color: '#C9A96E', letterSpacing: '0.05em',
               textTransform: 'capitalize', margin: 0,
             }}>
-              Luxury Residential Project in Sarjapur Road, Bangalore
+              The Right Life – Bengaluru's Largest Child-Centric Township
             </h3>
           </div>
           
           {/* Paragraphs */}
-          <p data-aos="flip-down" data-aos-delay="500" style={{
-            fontFamily: F_SANS, fontSize: '14.5px', color: '#4A4540',
-            lineHeight: 1.9,
-            marginTop: 0, marginBottom: '24px',
-            textAlign: 'justify',
-          }}>
-            The Right Life is a prestigious residential development by Mana Skanda. Located in Sarjapur Road, Bangalore East, it is built across a wide, master-planned area. Known for creating homes designed with love and foresight, Mana Skanda ensures every space resonates with warmth, luxury, and world-class craftsmanship. Offering families a tranquil lifestyle where schools, tech hubs, and modern urban conveniences are merely a whisper away, these luxurious 2, 3 BHK and 4 BHK housing units make it a dream home for everyone.
-          </p>
+          <div data-aos="flip-down" data-aos-delay="500" style={{ marginBottom: '24px' }}>
+            <p style={{
+              fontFamily: F_SANS, fontSize: '14.5px', color: '#4A4540',
+              lineHeight: 1.9,
+              marginTop: 0, marginBottom: '8px',
+              textAlign: 'justify',
+            }}>
+              {isExpanded ? (
+                <>The Right Life is a prestigious residential development by Mana Skanda, thoughtfully designed around the needs of growing families. Located on Sarjapur-varthur Road in Bangalore East, this expansive, master-planned township brings together child-centric living, abundant open spaces, thoughtfully designed amenities, and world-class craftsmanship. Built with love and foresight, every home at The Right Life is designed to create a nurturing environment where children can learn, explore, play, and grow while families enjoy a refined and peaceful lifestyle. From thoughtfully planned spaces to enriching experiences, every detail reflects Mana Skanda’s commitment to creating homes that truly put family and childhood at the heart of everyday living. Offering luxurious <strong style={{ color: '#C9A96E' }}>2, 3 & 4 BHK homes</strong>, The Right Life provides the perfect balance of tranquillity and connectivity, with reputed schools, major technology hubs, healthcare, and everyday conveniences within easy reach.</>
+              ) : (
+                <>The Right Life is a prestigious residential development by Mana Skanda, thoughtfully designed around the needs of growing families. Located on Sarjapur-varthur Road in Bangalore East, this expansive, master-planned township brings together child-centric living, abundant open spaces, thoughtfully designed amenities, and world-class craftsmanship. Built with love and foresight, every home at The Right Life is designed to create a...</>
+              )}
+              <button 
+                onClick={() => setIsExpanded(!isExpanded)}
+                style={{
+                  fontFamily: F_JOST, fontSize: '13px', fontWeight: '600',
+                  color: '#C9A96E', cursor: 'pointer', background: 'none', border: 'none', padding: 0,
+                  textDecoration: 'underline', textUnderlineOffset: '4px', marginLeft: '6px'
+                }}
+                className="hover:text-[#a08451] transition-colors inline-block"
+              >
+                {isExpanded ? 'Read Less' : 'Read More'}
+              </button>
+            </p>
+          </div>
 
           {/* Info Box */}
           <div

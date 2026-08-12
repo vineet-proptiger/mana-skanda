@@ -110,6 +110,7 @@ export default function Home() {
           </svg>
           <span style={{ fontSize: '9px', fontWeight: '600', letterSpacing: '0.04em', fontFamily: 'var(--font-jost)' }}>Enquire</span>
         </button>
+        {/* WhatsApp Button Temporarily Commented Out
         <a
           href="https://wa.me/919718344024?text=Hi%20I%20am%20interested%20in%20Mana%20Skanda%20The%20Right%20Life"
           target="_blank" rel="noopener noreferrer"
@@ -121,6 +122,7 @@ export default function Home() {
           </svg>
           <span style={{ fontSize: '9px', fontWeight: '600', letterSpacing: '0.04em', fontFamily: 'var(--font-jost)' }}>WhatsApp</span>
         </a>
+        */}
       </div>
 
       <div className="h-10 lg:hidden" />

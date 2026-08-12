@@ -398,7 +398,7 @@ const Hero = ({ setIsOpen }) => {
         <>
             {/* Main Heading */}
             <h1 className="hero-title" data-aos="zoom-in-up" data-aos-delay="0">
-             MANA SKANDA THE RIGHT LIFE
+             THE RIGHT LIFE BY MANA GROUP
             </h1>
 
             {/* Subtitle */}

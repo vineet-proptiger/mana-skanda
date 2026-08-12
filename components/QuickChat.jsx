@@ -47,7 +47,7 @@ export default function QuickChat() {
           {/* Body */}
           <div className="p-3 sm:p-5 flex flex-col gap-3 sm:gap-4">
             <div className="bg-white text-[#151515] text-[13px] sm:text-[14px] px-3 py-2.5 sm:px-4 sm:py-3 rounded-2xl rounded-tl-sm w-fit shadow-sm max-w-[85%] self-start">
-              Hi 👋 What would you like to know about Mana Skanda The Right Life?
+              Hi 👋 What would you like to know aboutMana The Right Life?
             </div>
             
             <div className="flex flex-wrap justify-start gap-1.5 sm:gap-2.5">

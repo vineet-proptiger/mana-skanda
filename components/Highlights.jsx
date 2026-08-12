@@ -132,7 +132,7 @@ const Highlights = ({ setIsOpen }) => (
           textTransform: 'uppercase', margin: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          Designed for Comfort, Wellness &amp; Leisure At Mana Skanda The Right Life
+          Designed for Comfort, Wellness &amp; Leisure At Mana The Right Life
         </h2>
       </div>
 

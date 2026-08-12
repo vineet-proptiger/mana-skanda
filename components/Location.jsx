@@ -55,7 +55,7 @@ const Location = () => {
                   fontFamily: F_SANS, fontWeight: '500', fontSize: '14px',
                   color: '#674B1A', margin: '14px 0 0', lineHeight: '1.7rem'
                 }}>
-                  Mana Skanda The Right Life is positioned for fast access to Bangalore’s best healthcare, education, retail and tech hubs. This is the most connected address in Sarjapur Road, Bangalore East.
+                 Mana The Right Life is positioned for fast access to Bangalore’s best healthcare, education, retail and tech hubs. This is the most connected address in Sarjapur Road, Bangalore East.
                 </p>
               </div> */}
 

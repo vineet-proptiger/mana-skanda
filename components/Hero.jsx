@@ -171,7 +171,7 @@ const Hero = ({ setIsOpen }) => {
         }
 
         .desktop-hero-image {
-          animation: heroZoomInOut 15s ease-in-out infinite;
+          /* animation: heroZoomInOut 15s ease-in-out infinite; */
           transform-origin: center center;
           will-change: transform;
         }
@@ -180,12 +180,15 @@ const Hero = ({ setIsOpen }) => {
         @media (min-width: 1024px) {
           .hero-container {
             width: 100%;
-            height: auto;
+            height: 90vh;
+            min-height: 520px;
+            max-height: 950px;
           }
           .hero-slider-wrapper {
-            position: relative;
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
           }
           .slide-layer {
             position: absolute;
@@ -193,13 +196,11 @@ const Hero = ({ setIsOpen }) => {
             width: 100%;
             height: 100%;
           }
-          .slide-layer:first-child {
-            position: relative !important;
-          }
           .hero-image {
             width: 100%;
-            height: auto;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 80%;
           }
           .hero-content {
             padding: 80px 80px 64px 48px !important;

@@ -137,13 +137,11 @@ const MasterPlan = ({ setIsOpen }) => {
 
           {/* RIGHT — Image preview */}
           <div className="w-full lg:flex-1" data-aos="zoom-in">
-            <div style={{
-              position: 'relative', borderRadius: '8px', overflow: 'hidden',
-              border: '1px solid #D5C2A8',
-              boxShadow: '0 10px 36px var(--color-shadow-inner)',
-              height: '100%', minHeight: '400px',
-              cursor: 'pointer'
-            }} onClick={() => { 
+            <div className="relative rounded-lg overflow-hidden border border-[#D5C2A8] w-full aspect-video" 
+              style={{
+                boxShadow: '0 10px 36px var(--color-shadow-inner)',
+                cursor: 'pointer'
+              }} onClick={() => { 
               if (activePlan === 0) setIsLightboxOpen(true)
               else setIsOpen(true) 
             }}>
@@ -169,8 +167,8 @@ const MasterPlan = ({ setIsOpen }) => {
 
               {/* Image with conditional blur */}
               <Image src={plans[activePlan].img} alt={plans[activePlan].label} fill
+                className={activePlan === 0 ? "object-contain" : "object-cover"}
                 style={{ 
-                  objectFit: activePlan === 0 ? 'contain' : 'cover',
                   filter: activePlan === 0 ? 'none' : 'blur(5px)',
                   transform: activePlan === 0 ? 'none' : 'scale(1.06)'
                 }} />

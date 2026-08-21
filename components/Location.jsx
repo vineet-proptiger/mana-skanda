@@ -19,6 +19,8 @@ const locationItems = [
 ]
 
 const Location = () => {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+
   return (
     <section id="location" style={{
       padding: '72px 0',
@@ -96,29 +98,18 @@ const Location = () => {
 
           {/* RIGHT — Map */}
           <div className="w-full lg:flex-1 flex flex-col justify-center" data-aos="fade-left" data-aos-delay="150">
-            <div className="overflow-hidden border border-[#D5C2A8] bg-[#EAE5DC] relative flex items-center justify-center w-full h-full">
-              {/* Google Maps iframe commented out as requested */}
-              {/* <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.13332784909!2d77.7479348!3d12.899147199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0dc0ad20cbbb%3A0x68e80745218128fa!2sMana%20Skanda%20%7C%20The%20Right%20Life!5e0!3m2!1sen!2sin!4v1785316145007!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: '420px', display: 'block' }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-              /> */}
-
+            <div 
+              className="overflow-hidden border border-[#D5C2A8] bg-[#EAE5DC] relative flex items-center justify-center w-full h-full min-h-[350px] lg:min-h-[400px] cursor-pointer"
+              onClick={() => setIsLightboxOpen(true)}
+            >
               {/* Display location map image responsively without cropping */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                <Image
-                  src="/images/location/location.webp"
-                  alt="Mana Skanda - Location Map & Prime Connectivity"
-                  width={1200}
-                  height={1200}
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+              <Image
+                src="/images/location/location.webp"
+                alt="Mana Skanda - Location Map & Prime Connectivity"
+                fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover"
+              />
 
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-[var(--color-gold)] opacity-95 backdrop-blur-[6px] rounded-lg py-1.5 px-3 sm:py-1.5 sm:px-3.5 flex items-center gap-1.5 shadow-sm">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -134,6 +125,32 @@ const Location = () => {
 
         </div>
       </div>
+      {/* Lightbox for Location Map */}
+      {isLightboxOpen && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 99999,
+          background: 'rgba(0,0,0,0.85)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: '20px'
+        }} onClick={() => setIsLightboxOpen(false)}>
+          <button style={{
+            position: 'absolute', top: '30px', right: '30px',
+            background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', 
+            borderRadius: '50%',
+            width: '44px', height: '44px', color: '#fff', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            zIndex: 100000, transition: 'all 0.2s'
+          }} onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <div style={{ position: 'relative', width: '100%', maxWidth: '1200px', height: '90vh' }} onClick={(e) => e.stopPropagation()}>
+            <Image src="/images/location/location.webp" alt="Mana Skanda Location Map Full" fill style={{ objectFit: 'contain' }} />
+          </div>
+        </div>
+      )}
     </section>
   )
 }

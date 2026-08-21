@@ -15,6 +15,7 @@ const plans = [
 
 const MasterPlan = ({ setIsOpen }) => {
   const [activePlan, setActivePlan] = useState(0)
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
   return (
     <section id="masterplan" style={{
@@ -141,6 +142,10 @@ const MasterPlan = ({ setIsOpen }) => {
               border: '1px solid #D5C2A8',
               boxShadow: '0 10px 36px var(--color-shadow-inner)',
               height: '100%', minHeight: '400px',
+              cursor: 'pointer'
+            }} onClick={() => { 
+              if (activePlan === 0) setIsLightboxOpen(true)
+              else setIsOpen(true) 
             }}>
               {/* Brand top accent */}
               <div style={{
@@ -162,60 +167,88 @@ const MasterPlan = ({ setIsOpen }) => {
                 </span>
               </div>
 
-              {/* Blurred image */}
+              {/* Image with conditional blur */}
               <Image src={plans[activePlan].img} alt={plans[activePlan].label} fill
                 style={{ 
-                  objectFit: 'cover', 
-                  filter: 'blur(5px)', 
-                  transform: 'scale(1.06)' 
+                  objectFit: activePlan === 0 ? 'contain' : 'cover',
+                  filter: activePlan === 0 ? 'none' : 'blur(5px)',
+                  transform: activePlan === 0 ? 'none' : 'scale(1.06)'
                 }} />
 
-              {/* Dark overlay */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: 'rgba(17,24,39,0.45)',
-              }} />
-
-              {/* CTA in center */}
-              <div style={{
-                position: 'absolute', inset: 0, zIndex: 5,
-                display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center', gap: '12px',
-              }}>
-                <div style={{
-                  width: '52px', height: '52px', borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(4px)',
-                  border: '2px solid rgba(255,255,255,0.3)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '4px',
-                }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                    stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
-                  </svg>
-                </div>
-                <p style={{
-                  fontFamily: F_JOST, fontSize: '13px', color: 'rgba(255,255,255,0.7)',
-                  margin: 0, fontWeight: '600', letterSpacing: '0.04em'
-                }}>
-                  Register to Unlock Floor Plan
-                </p>
-                <button onClick={() => setIsOpen(true)} className="btn-gold"
-                  data-aos="zoom-in" data-aos-delay="400"
-                  style={{ padding: '11px 32px', fontSize: '13px', letterSpacing: '0.1em' }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                  View Plan
-                </button>
-              </div>
+              {/* Dark overlay & CTA only for blurred floor plans */}
+              {activePlan !== 0 && (
+                <>
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'rgba(17,24,39,0.45)',
+                  }} />
+                  <div style={{
+                    position: 'absolute', inset: 0, zIndex: 5,
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center', gap: '12px',
+                    cursor: 'pointer'
+                  }} onClick={() => setIsOpen(true)}>
+                    <div style={{
+                      width: '52px', height: '52px', borderRadius: '50%',
+                      background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(4px)',
+                      border: '2px solid rgba(255,255,255,0.3)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      marginBottom: '4px',
+                    }}>
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
+                      </svg>
+                    </div>
+                    <p style={{
+                      fontFamily: F_JOST, fontSize: '13px', color: 'rgba(255,255,255,0.7)',
+                      margin: 0, fontWeight: '600', letterSpacing: '0.04em'
+                    }}>
+                      Register to Unlock Floor Plan
+                    </p>
+                    <button className="btn-gold"
+                      style={{ padding: '11px 32px', fontSize: '13px', letterSpacing: '0.1em' }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
+                      View Plan
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
         </div>
       </div>
+      {/* Lightbox for Master Plan */}
+      {isLightboxOpen && activePlan === 0 && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 99999,
+          background: 'rgba(0,0,0,0.85)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: '20px'
+        }} onClick={() => setIsLightboxOpen(false)}>
+          <button style={{
+            position: 'absolute', top: '30px', right: '30px',
+            background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', 
+            borderRadius: '50%',
+            width: '44px', height: '44px', color: '#fff', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            zIndex: 100000, transition: 'all 0.2s'
+          }} onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <div style={{ position: 'relative', width: '100%', maxWidth: '1200px', height: '90vh' }} onClick={(e) => e.stopPropagation()}>
+            <Image src={plans[activePlan].img} alt={plans[activePlan].label} fill style={{ objectFit: 'contain' }} />
+          </div>
+        </div>
+      )}
     </section>
   )
 }

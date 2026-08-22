@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { heroImages } from '../lib/images'
 
 const slides = [
-  { img: heroImages.banner },
-  { img: heroImages.banner2 }
+  { img: heroImages.banner, imgMobile: heroImages.smDevice1 },
+  { img: heroImages.banner2, imgMobile: heroImages.smDevice2 }
 ]
 
 
@@ -271,8 +271,23 @@ const Hero = ({ setIsOpen }) => {
           }
         }
 
+        /* By default hide mobile image */
+        .mobile-hero-image {
+          display: none !important;
+        }
+
         /* ─── Mobile ─── */
         @media (max-width: 767px) {
+          .desktop-hero-image {
+            display: none !important;
+          }
+          .mobile-hero-image {
+            display: block !important;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+
           .hero-container {
             margin-top: 0px !important;
             padding-top: 80px !important;
@@ -386,12 +401,23 @@ const Hero = ({ setIsOpen }) => {
               priority={index === 0}
               sizes="100vw"
             /> */}
+            {/* Desktop Image */}
             <Image
               src={slide.img}
               alt="Mana Skanda The Right Life Hero Background"
               width={1920}
               height={800}
               className="hero-image desktop-hero-image"
+              priority={index === 0}
+              sizes="100vw"
+            />
+            {/* Mobile Image */}
+            <Image
+              src={slide.imgMobile}
+              alt="Mana Skanda The Right Life Mobile Background"
+              width={1254}
+              height={1254}
+              className="hero-image mobile-hero-image"
               priority={index === 0}
               sizes="100vw"
             />

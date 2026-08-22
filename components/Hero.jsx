@@ -180,9 +180,9 @@ const Hero = ({ setIsOpen }) => {
         @media (min-width: 1024px) {
           .hero-container {
             width: 100%;
-            height: 90vh;
+            height: calc(100vh - 80px);
             min-height: 520px;
-            max-height: 950px;
+            max-height: 1020px;
           }
           .hero-slider-wrapper {
             position: absolute;
@@ -386,16 +386,15 @@ const Hero = ({ setIsOpen }) => {
               priority={index === 0}
               sizes="100vw"
             /> */}
-
             <Image
-  src={slide.img}
-  alt="Mana Skanda The Right Life Hero Background"
-  width={1920}
-  height={1080}
-  className="hero-image desktop-hero-image"
-  priority={index === 0}
-  sizes="100vw"
-/>
+              src={slide.img}
+              alt="Mana Skanda The Right Life Hero Background"
+              width={1920}
+              height={800}
+              className="hero-image desktop-hero-image"
+              priority={index === 0}
+              sizes="100vw"
+            />
           </div>
         ))}
       </div>

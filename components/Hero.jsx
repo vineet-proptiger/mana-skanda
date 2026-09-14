@@ -392,15 +392,7 @@ const Hero = ({ setIsOpen }) => {
             className={`slide-layer ${index === currentSlide ? 'active' : ''}`}
             style={{ gridArea: '1 / 1 / 2 / 2' }}
           >
-            {/* <Image
-              src={slide.img}
-              alt="Mana Skanda The Right Life Hero Background"
-              width={1920}
-              height= {auto}
-              className="hero-image desktop-hero-image"
-              priority={index === 0}
-              sizes="100vw"
-            /> */}
+           
             {/* Desktop Image */}
             <Image
               src={slide.img}

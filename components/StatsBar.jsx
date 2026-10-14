@@ -1,7 +1,7 @@
 const stats = [
   { value: 'Wide', label: 'Area Development' },
   { value: '₹1.4 Cr*', label: 'Starting Price' },
-  { value: '2, 3 & 4', label: 'BHK Configurations' },
+  { value: '2 & 4', label: 'BHK Configurations' },
   { value: 'RERA', label: 'Approved Project' },
 ]
 

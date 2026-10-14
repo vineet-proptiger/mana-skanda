@@ -454,7 +454,7 @@ const Hero = ({ setIsOpen }) => {
 
             {/* Restored Subtitle */}
             <p className="hero-price-line" data-aos="fade-up" data-aos-delay="1300" style={{ marginBottom: '0px' }}>
-              2, 3 &amp; 4 BHK LUXURY RESIDENCES
+              2 &amp; 4 BHK LUXURY RESIDENCES
             </p>
 
             {/* CTA Row */}

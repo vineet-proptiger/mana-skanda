@@ -31,7 +31,7 @@ const CurvedCorners = ({ bg = '#fff' }) => {
 const infoItems = [
   { label: 'Project Status', value: 'New Launch', highlight: false },
   { label: 'Residential',       value: 'G+32 Tower', highlight: false },
-  { label: 'Configurations', value: '2, 3 & 4 BHK', highlight: false },
+  { label: 'Configurations', value: '2 & 4 BHK', highlight: false },
   { label: 'Township Area',    value: '100 Acres', highlight: true },
 ]
 
@@ -97,7 +97,7 @@ const Overview = ({ setIsOpen }) => {
               textAlign: 'justify',
             }}>
               {isExpanded ? (
-                <>The Right Life is a prestigious residential development by Mana Skanda, thoughtfully designed around the needs of growing families. Located on Sarjapur-varthur Road in Bangalore East, this expansive, master-planned township brings together child-centric living, abundant open spaces, thoughtfully designed amenities, and world-class craftsmanship. Built with love and foresight, every home at The Right Life is designed to create a nurturing environment where children can learn, explore, play, and grow while families enjoy a refined and peaceful lifestyle. From thoughtfully planned spaces to enriching experiences, every detail reflects Mana Skanda’s commitment to creating homes that truly put family and childhood at the heart of everyday living. Offering luxurious <strong style={{ color: '#C9A96E' }}>2, 3 & 4 BHK homes</strong>, The Right Life provides the perfect balance of tranquillity and connectivity, with reputed schools, major technology hubs, healthcare, and everyday conveniences within easy reach.</>
+                <>The Right Life is a prestigious residential development by Mana Skanda, thoughtfully designed around the needs of growing families. Located on Sarjapur-varthur Road in Bangalore East, this expansive, master-planned township brings together child-centric living, abundant open spaces, thoughtfully designed amenities, and world-class craftsmanship. Built with love and foresight, every home at The Right Life is designed to create a nurturing environment where children can learn, explore, play, and grow while families enjoy a refined and peaceful lifestyle. From thoughtfully planned spaces to enriching experiences, every detail reflects Mana Skanda’s commitment to creating homes that truly put family and childhood at the heart of everyday living. Offering luxurious <strong style={{ color: '#C9A96E' }}>2 & 4 BHK homes</strong>, The Right Life provides the perfect balance of tranquillity and connectivity, with reputed schools, major technology hubs, healthcare, and everyday conveniences within easy reach.</>
               ) : (
                 <>The Right Life is a prestigious residential development by Mana Skanda, thoughtfully designed around the needs of growing families. Located on Sarjapur-varthur Road in Bangalore East, this expansive, master-planned township brings together child-centric living, abundant open spaces, thoughtfully designed amenities, and world-class craftsmanship. Built with love and foresight, every home at The Right Life is designed to create a...</>
               )}

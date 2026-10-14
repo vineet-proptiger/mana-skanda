@@ -10,6 +10,7 @@ const units = [
     size: "On Request",
     price: "₹1.4 Cr*",
     oldPrice: null,
+    isSoldOut: false,
     btnText: "Get Details",
     features: [
       "Luxurious 2 BHK layout",
@@ -21,9 +22,10 @@ const units = [
   {
     type: "3 BHK Residences",
     size: "On Request",
-    price: "On Request",
+    price: "Sold Out",
     oldPrice: null,
-    btnText: "Get Details",
+    isSoldOut: true,
+    btnText: "Sold Out",
     features: [
       "Spacious 3 BHK premium suite",
       "Abundant natural light & ventilation",
@@ -36,6 +38,7 @@ const units = [
     size: "On Request",
     price: "On Request",
     oldPrice: null,
+    isSoldOut: false,
     btnText: "Get Details",
     features: [
       "Expansive 4 BHK grand residences",
@@ -97,13 +100,28 @@ const Pricing = ({ setIsOpen }) => {
           {/* Grid Container for 3 Units */}
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#D5C2A8]">
             {units.map((unit, idx) => (
-              <div key={idx} className="p-6 lg:p-8 relative flex flex-col justify-between">
+              <div 
+                key={idx} 
+                className={`p-6 lg:p-8 relative flex flex-col justify-between ${
+                  unit.isSoldOut ? 'bg-[#fafafa]' : ''
+                }`}
+              >
                 <div>
+                  {/* Sold Out Tag / Badge */}
+                  {unit.isSoldOut && (
+                    <div className="mb-3">
+                      <span className="inline-flex items-center gap-1.5 bg-[#dc2626] text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                        Sold Out
+                      </span>
+                    </div>
+                  )}
+
                   {/* Title & Size */}
                   <h3
                     data-aos={idx % 2 === 0 ? "flip-left" : "flip-right"} data-aos-delay="500"
                     className="text-2xl font-bold mb-2"
-                    style={{ fontFamily: F_SANS, color: "#000000", letterSpacing: "0.02em" }}
+                    style={{ fontFamily: F_SANS, color: unit.isSoldOut ? "#374151" : "#000000", letterSpacing: "0.02em" }}
                   >
                     {unit.type}
                   </h3>
@@ -116,14 +134,19 @@ const Pricing = ({ setIsOpen }) => {
 
                   {/* Price Section */}
                   <div className="mb-8" data-aos={idx % 2 === 0 ? "flip-right" : "flip-left"} data-aos-delay="500">
-                    <span className="text-[10px] text-gray-400 uppercase tracking-[0.15em] font-medium block mb-1" style={{ fontFamily: F_SANS }}>Starting At</span>
+                    <span className="text-[10px] text-gray-400 uppercase tracking-[0.15em] font-medium block mb-1" style={{ fontFamily: F_SANS }}>
+                      {unit.isSoldOut ? 'Status' : 'Starting At'}
+                    </span>
                     <div className="flex items-baseline gap-3">
                       {unit.oldPrice && (
                         <span className="text-sm md:text-base line-through font-medium opacity-60" style={{ fontFamily: F_SANS, color: GOLD }}>
                           {unit.oldPrice}
                         </span>
                       )}
-                      <p className="text-2xl md:text-3xl font-extrabold" style={{ fontFamily: F_SANS, color: GOLD }}>
+                      <p 
+                        className="text-2xl md:text-3xl font-extrabold" 
+                        style={{ fontFamily: F_SANS, color: unit.isSoldOut ? '#dc2626' : GOLD }}
+                      >
                         {unit.price}
                       </p>
                     </div>
@@ -133,8 +156,8 @@ const Pricing = ({ setIsOpen }) => {
                   <div className="space-y-4 mb-8">
                     {unit.features.map((feature, fIdx) => (
                       <div key={fIdx} data-aos="fade-left" data-aos-delay={(fIdx * 100) + 200} className="flex items-start gap-3">
-                        <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center bg-amber-50">
-                          <Check size={12} strokeWidth={3} style={{ color: GOLD }} />
+                        <div className={`mt-1 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${unit.isSoldOut ? 'bg-red-50' : 'bg-amber-50'}`}>
+                          <Check size={12} strokeWidth={3} style={{ color: unit.isSoldOut ? '#dc2626' : GOLD }} />
                         </div>
                         <span className="text-gray-700 font-medium text-[14px]" style={{ fontFamily: F_SANS }}>{feature}</span>
                       </div>
@@ -146,7 +169,11 @@ const Pricing = ({ setIsOpen }) => {
                 <button
                   data-aos="flip-right" data-aos-delay="500"
                   onClick={() => setIsOpen(true)}
-                  className="btn-gold w-full py-3.5 text-sm tracking-widest uppercase transition-all duration-300 font-bold"
+                  className={`w-full py-3.5 text-sm tracking-widest uppercase transition-all duration-300 font-bold ${
+                    unit.isSoldOut
+                      ? 'bg-red-50 text-[#dc2626] border border-red-200 hover:bg-red-100 cursor-pointer'
+                      : 'btn-gold'
+                  }`}
                   style={{ borderRadius: "8px" }}
                 >
                   {unit.btnText}
